@@ -26,33 +26,31 @@ node{
         }
     //Stage 3 : Cleaning
             stage('Cleaning Old docker and k8 images') {
-                sh ("kubectl delete -f .")
-                sh ('''
-                    docker rmi $(docker images -f 'dangling=true' -q) || true
-                    docker rmi $(docker images | sed 1,2d | awk '{print $3}') || true
-                    ''')
+                sh("kubectl delete -f .")
+                sh("docker rmi $(docker images -f 'dangling=true' -q) || true
+                    docker rmi $(docker images | sed 1,2d | awk '{print $3}') || true")
             }
 
-  //Stage 4 : Deploy Application
-      stage('Deploy Application To K8 Cluster') {
-           switch (namespace) {
-                  //Roll out to Dev Environment
-                  case "development":
+    //Stage 4 : Deploy Application
 
-                        //sh ("kubectl apply -f contentful-volumeclaim.yaml")
+              stage('Deploy Application To K8 Cluster') {
+                   switch (namespace) {
+                          //Roll out to Dev Environment
+                          case "development":
+                          //sh ("kubectl apply -f contentful-volumeclaim.yaml")
 
-                  // Create Contentful Service
-                        sh ("kubectl apply -f .)"
-                        //sh("kubectl create -f contentful.yaml")
-                        //sh ("kubectl get pod -l app=contentful")
-                        //sh("kubectl create -f contentful-service.yaml")
-                        //sh ("kubectl get svc -l app=contentful")
-                        //sh ("if [ `kubectl get pods -o=wide|grep Running | awk '{print \$3}'` = "Running" ]; then `kubectl get pod -l app=contentful`; sleep 5; else echo "Not Running"; fi"
-                        //sh ("while [ ''kubectl get pods -o=wide|grep Running | awk '{print \$3}''' != 'Running' ]; do kubectl get pod -l app=contentful; sleep 5; done")
-                  // Check for Service
-                        sh ("minikube service list")
-                        sh ("kubectl get pods -o=wide")
+                          // Create Contentful Service
+                                sh ("kubectl apply -f .)"
+                                //sh("kubectl create -f contentful.yaml")
+                                //sh ("kubectl get pod -l app=contentful")
+                                //sh("kubectl create -f contentful-service.yaml")
+                                //sh ("kubectl get svc -l app=contentful")
+                                //sh ("if [ `kubectl get pods -o=wide|grep Running | awk '{print \$3}'` = "Running" ]; then `kubectl get pod -l app=contentful`; sleep 5; else echo "Not Running"; fi"
+                                //sh ("while [ ''kubectl get pods -o=wide|grep Running | awk '{print \$3}''' != 'Running' ]; do kubectl get pod -l app=contentful; sleep 5; done")
+                          // Check for Service
+                                sh ("minikube service list")
+                                sh ("kubectl get pods -o=wide")
 
-                    }
+                            }
       }
   }
