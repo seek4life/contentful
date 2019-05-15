@@ -51,12 +51,6 @@ node{
                                 //sh ("if [ `kubectl get pods -o=wide|grep Running | awk '{print \$3}'` = "Running" ]; then `kubectl get pod -l app=contentful`; sleep 5; else echo "Not Running"; fi"
                                 //sh('''while [ ''kubectl get pods -o=wide|grep Running | awk '{print "\$3"}''' != 'Running' ]; do kubectl get pod -l app=contentful; sleep 5; done''')
 
-                          // Check for Service
-                                sh("minikube service list")
-                                sh("kubectl get pods -o=wide")
-                                sh("NAME=`minikube service list|grep contentful |awk '{print ''\$''6}'`")
-                                sh("echo ''\$''(NAME)")
-                                sh("timeout 300 bash -c 'while [[ ''''''\$''(curl -s -o /dev/null -w ''%{http_code}'' ''\$''(NAME)''' != '200' ]]; do sleep 5; done' || false")
 
                             }
       }
