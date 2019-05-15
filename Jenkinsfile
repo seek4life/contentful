@@ -55,7 +55,7 @@ node{
                                 sh("minikube service list")
                                 sh("kubectl get pods -o=wide")
                                 sh("NAME=minikube service list|grep contentful |awk '{print ''\$6''}'")
-                                sh("echo ""\$NAME""")
+                                sh("echo ''\$NAME''")
 
                             }
       }
