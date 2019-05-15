@@ -17,16 +17,8 @@ spec:
       containers:
         - image: nagaraj1171/contentful:Latest
           name: wordpress
-          env:
-          - name: WORDPRESS_DB_HOST
-            value: mysql:3306
-          - name: WORDPRESS_DB_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: mysql
-                key: password
           ports:
-            - containerPort: 80
+            - containerPort: 3000
               name: wordpress
           volumeMounts:
             - name: wordpress-persistent-storage
