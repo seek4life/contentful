@@ -39,7 +39,7 @@ node{
                   //Roll out to Dev Environment
                   case "development":
 
-                        sh("kubectl apply -f contentful-volumeclaim.yaml")
+                        //sh ("kubectl apply -f contentful-volumeclaim.yaml")
 
                   // Create Contentful Service
                         sh ("kubectl apply -f ."
@@ -50,7 +50,7 @@ node{
                         //sh ("if [ `kubectl get pods -o=wide|grep Running | awk '{print \$3}'` = "Running" ]; then `kubectl get pod -l app=contentful`; sleep 5; else echo "Not Running"; fi"
                         //sh ("while [ ''kubectl get pods -o=wide|grep Running | awk '{print \$3}''' != "Running" ]; do kubectl get pod -l app=contentful; sleep 5; done")
                   // Check for Service
-                        sh("minikube service list")
+                        sh ("minikube service list")
 
                   // Check if it is running
                         sh ("kubectl get pods -o=wide")
