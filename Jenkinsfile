@@ -40,7 +40,7 @@ node{
                           //sh ("kubectl apply -f contentful-volumeclaim.yaml")
 
                           // Create Contentful Service
-                                sh("kubectl apply -f .")
+                                sh("kubectl apply -f . ; exit 0")
                                 //sh("kubectl create -f contentful.yaml")
                                 //sh ("kubectl get pod -l app=contentful")
                                 //sh("kubectl create -f contentful-service.yaml")
