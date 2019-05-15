@@ -6,7 +6,7 @@ node{
   def serviceName = "${appName}-backend"
   def imageVersion = 'v2.0'
   def namespace = 'development'
-  def imageTag = "contentful:v2.0"
+  def imageTag = "contentful:Latest"
 
   //Checkout Code from Git
   checkout scm
