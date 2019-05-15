@@ -30,7 +30,7 @@ node{
               case "development":
               // Create Volume
                     sh ("chmod +x run_destroy.sh")
-                    sh ("./run_destroy.sh &>/dev/null")
+                    sh ("./run_destroy.sh")
                     //sh("kubectl apply -f mysql-volumeclaim.yaml")
                     sh("kubectl apply -f contentful-volumeclaim.yaml")
               // Deploy MySQL Password
