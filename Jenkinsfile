@@ -56,7 +56,7 @@ node{
                                 sh("kubectl get pods -o=wide")
                                 sh("NAME=`minikube service list|grep contentful |awk '{print ''\$''6}'`")
                                 sh("echo ''\$''(NAME)")
-                                sh("timeout 300 bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' ''\$''(NAME)" != "200" ]]; do sleep 5; done' || false")
+                                sh("timeout 300 bash -c 'while [[ "''\$''(curl -s -o /dev/null -w ''%{http_code}'' ''\$''(NAME)" != "200" ]]; do sleep 5; done' || false")
 
                             }
       }
