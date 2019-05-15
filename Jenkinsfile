@@ -51,8 +51,6 @@ node{
                         //sh ("while [ ''kubectl get pods -o=wide|grep Running | awk '{print \$3}''' != "Running" ]; do kubectl get pod -l app=contentful; sleep 5; done")
                   // Check for Service
                         sh ("minikube service list")
-
-                  // Check if it is running
                         sh ("kubectl get pods -o=wide")
 
                     }
