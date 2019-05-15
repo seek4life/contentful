@@ -3,7 +3,7 @@ node{
   //Define all variables
   def project = 'contentful_app'
   def imageVersion = 'v2.0'
-  def namespace = '${namespace}'
+  def namespace = 'development'//''${namespace}'
   def imageTag = "contentful:Latest"
 
   //Checkout Code from Git
