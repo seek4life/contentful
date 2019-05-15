@@ -30,7 +30,7 @@ node{
               case "development":
               // Create Volume
                     //sh("kubectl apply -f mysql-volumeclaim.yaml")
-                    sh("kubectl apply -f wordpress-volumeclaim.yaml")
+                    sh("kubectl apply -f contentful-volumeclaim.yaml")
               // Deploy MySQL Password
 
                     //sh("kubectl create secret generic mysql --from-literal=password=mysql123")
@@ -44,10 +44,10 @@ node{
 
               // Create Wordpress Service
 
-                    sh("kubectl create -f wordpress.yaml")
-                    sh("kubectl get pod -l app=wordpress")
-                    sh("kubectl create -f wordpress-service.yaml")
-                    sh("kubectl get svc -l app=wordpress")
+                    sh("kubectl create -f contentful.yaml")
+                    sh("kubectl get pod -l app=contentful")
+                    sh("kubectl create -f contentful-service.yaml")
+                    sh("kubectl get svc -l app=contentful")
               // Check for Service
                     sh("minikube service list")
 
