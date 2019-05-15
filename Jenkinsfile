@@ -46,7 +46,7 @@ node{
                         //sh("kubectl create -f contentful.yaml")
                         //sh ("kubectl get pod -l app=contentful")
                         //sh("kubectl create -f contentful-service.yaml")
-                        sh ("kubectl get svc -l app=contentful")
+                        //sh ("kubectl get svc -l app=contentful")
                         //sh ("if [ `kubectl get pods -o=wide|grep Running | awk '{print \$3}'` = "Running" ]; then `kubectl get pod -l app=contentful`; sleep 5; else echo "Not Running"; fi"
                         sh ("while [ ''kubectl get pods -o=wide|grep Running | awk '{print \$3}''' != "Running" ]; do kubectl get pod -l app=contentful; sleep 5; done")
                   // Check for Service
