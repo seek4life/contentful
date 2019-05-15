@@ -30,7 +30,7 @@ node{
               case "development":
               // Create Volume
                     //sh("kubectl apply -f mysql-volumeclaim.yaml")
-                    //sh("kubectl apply -f wordpress-volumeclaim.yaml")
+                    sh("kubectl apply -f wordpress-volumeclaim.yaml")
               // Deploy MySQL Password
 
                     //sh("kubectl create secret generic mysql --from-literal=password=mysql123")
