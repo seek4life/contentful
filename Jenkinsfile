@@ -26,7 +26,9 @@ node{
         }
     //Stage 3 : Cleaning
             stage('Cleaning Old docker and k8 images') {
-                sh("kubectl delete -f .")
+                //sh("kubectl delete -f .")
+                sh("chmod +x run_destroy.sh")
+                sh("./run_destroy.sh")
                 sh('''docker rmi $(docker images -f 'dangling=true' -q) || true
                     docker rmi $(docker images | sed 1,2d | awk '{print "\$3"}') || true''')
             }
