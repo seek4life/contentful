@@ -13,3 +13,5 @@ kubectl delete -f contentful.yaml
 kubectl delete pvc wordpress-volumeclaim
 kubectl delete pvc contentful-volumeclaim
 kubectl delete pvc mysql-volumeclaim
+
+exit 0
