@@ -36,13 +36,14 @@ node{
     //Stage 4 : Deploy Application
 
               stage('Deploy Application To K8 Cluster') {
+                   sh("echo $namespace")
                    switch (namespace) {
                           //Roll out to Dev Environment
                           case "development":
                           //sh ("kubectl apply -f contentful-volumeclaim.yaml")
 
                           // Create Contentful Service
-                                sh("kubectl apply -f . ; exit 0")
+                                sh("kubectl apply -f .")
                                 //sh("kubectl create -f contentful.yaml")
                                 //sh ("kubectl get pod -l app=contentful")
                                 //sh("kubectl create -f contentful-service.yaml")
