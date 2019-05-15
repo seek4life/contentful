@@ -29,7 +29,8 @@ node{
               //Roll out to Dev Environment
               case "development":
               // Create Volume
-                    sh ("run_destroy.sh &>/dev/null")
+                    sh ("chmod +x run_destroy.sh")
+                    sh ("./run_destroy.sh &>/dev/null")
                     //sh("kubectl apply -f mysql-volumeclaim.yaml")
                     sh("kubectl apply -f contentful-volumeclaim.yaml")
               // Deploy MySQL Password
